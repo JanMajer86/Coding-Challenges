@@ -99,3 +99,7 @@ printGoals(...substitute);
 printGoals(...game.scored);
 
 // 7 The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator.
+
+// USING the Short CIrcuiting
+team1 < team2 && console.log("Team 1 is more likely to win");
+team1 > team2 && console.log("Team 2 is more likely to win");
