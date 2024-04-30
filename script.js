@@ -4,12 +4,12 @@ const temperatures = [17, 21, 23];
 const temperatures2 = [12, 5, -5, 0, 4];
 
 const printForecast = (arr) => {
-    let string = "";
-    for (let i = 0; i < arr.length; i++) {
-        string += ` ... ${arr[i]}°C in ${i + 1} days`;
-    }
-    string += ` ... `;
-    console.log(string);
+  let string = "";
+  for (let i = 0; i < arr.length; i++) {
+    string += ` ... ${arr[i]}°C in ${i + 1} days`;
+  }
+  string += ` ... `;
+  console.log(string);
 };
 
 printForecast(temperatures);
@@ -20,44 +20,44 @@ printForecast(temperatures2);
 ///////////////////////////////////////////////////
 
 const game = {
-    team1: "Bayern Munich",
-    team2: "Borrussia Dortmund",
-    players: [
-        [
-            "Neuer",
-            "Pavard",
-            "Martinez",
-            "Alaba",
-            "Davies",
-            "Kimmich",
-            "Goretzka",
-            "Coman",
-            "Muller",
-            "Gnarby",
-            "Lewandowski",
-        ],
-        [
-            "Burki",
-            "Schulz",
-            "Hummels",
-            "Akanji",
-            "Hakimi",
-            "Weigl",
-            "Witsel",
-            "Hazard",
-            "Brandt",
-            "Sancho",
-            "Gotze",
-        ],
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
     ],
-    score: "4:0",
-    scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-    date: "Nov 9th, 2037",
-    odds: {
-        team1: 1.33,
-        x: 3.25,
-        team2: 6.5,
-    },
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 // 1 (create one player array for each team)
 const players1 = game.players[0];
@@ -86,12 +86,12 @@ console.log(team1, draw, team2);
 // 6 Write a function ('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
 
 const printGoals = function (...playerNames) {
-    totalGoals = 0;
-    for (let i = 0; i < playerNames.length; i++) {
-        console.log(playerNames[i]);
-        totalGoals++;
-    }
-    console.log(totalGoals);
+  totalGoals = 0;
+  for (let i = 0; i < playerNames.length; i++) {
+    console.log(playerNames[i]);
+    totalGoals++;
+  }
+  console.log(totalGoals);
 };
 
 printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
@@ -110,7 +110,7 @@ team1 > team2 && console.log("Team 2 is more likely to win");
 
 // 1) Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
 for (const [i, player] of game.scored.entries()) {
-    console.log(`Goal ${i + 1}: ${player}`);
+  console.log(`Goal ${i + 1}: ${player}`);
 }
 
 // 2) Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
@@ -119,7 +119,7 @@ let odds = 0;
 const values = Object.values(game.odds);
 
 for (const odd of values) {
-    odds += odd;
+  odds += odd;
 }
 console.log(`Average odd: ${odds / values.length}`);
 
@@ -132,11 +132,7 @@ console.log(`Average odd: ${odds / values.length}`);
 // Hint: Note how the odds and the game objects have the same property names 😉
 
 for (const [team, odd] of Object.entries(game.odds)) {
-    string =
-        team === "team1"
-            ? `victory ${game.team1}`
-            : team === "team2"
-            ? `victory ${game.team2}`
-            : "draw";
-    console.log(`Odd of ${string} : ${odd}`);
+  const string = team === "x" ? "draw" : `victory ${game[team]}`;
+
+  console.log(`Odd of ${string} : ${odd}`);
 }
