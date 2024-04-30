@@ -109,10 +109,8 @@ team1 > team2 && console.log("Team 2 is more likely to win");
 //////////////////////////////////////////
 
 // 1) Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
-let goal = 0;
-for (const player of game.scored) {
-    goal++;
-    console.log(`Goal ${goal}: ${player}`);
+for (const [i, player] of game.scored.entries()) {
+    console.log(`Goal ${i + 1}: ${player}`);
 }
 
 // 2) Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
@@ -124,3 +122,21 @@ for (const odd of values) {
     odds += odd;
 }
 console.log(`Average odd: ${odds / values.length}`);
+
+// Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+// Odd of victory Bayern Munich: 1.33
+// Odd of draw: 3.25
+// Odd of victory Borrussia Dortmund: 6.5
+// Get the team names directly from the game object, don't hardcode them
+// (except for "draw").
+// Hint: Note how the odds and the game objects have the same property names 😉
+
+for (const [team, odd] of Object.entries(game.odds)) {
+    string =
+        team === "team1"
+            ? `victory ${game.team1}`
+            : team === "team2"
+            ? `victory ${game.team2}`
+            : "draw";
+    console.log(`Odd of ${string} : ${odd}`);
+}
