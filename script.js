@@ -116,3 +116,11 @@ for (const player of game.scored) {
 }
 
 // 2) Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+
+let odds = 0;
+const values = Object.values(game.odds);
+
+for (const odd of values) {
+    odds += odd;
+}
+console.log(`Average odd: ${odds / values.length}`);
