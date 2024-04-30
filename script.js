@@ -123,7 +123,7 @@ for (const odd of values) {
 }
 console.log(`Average odd: ${odds / values.length}`);
 
-// Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+// 3) Print the 3 odds to the console, but in a nice formatted way, exactly like this:
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
@@ -136,3 +136,21 @@ for (const [team, odd] of Object.entries(game.odds)) {
 
   console.log(`Odd of ${string} : ${odd}`);
 }
+
+// 4) Bonus: Create an object called 'scorers' which contains the names of the
+// players who scored as properties, and the number of goals as the value. In this
+// game, it will look like this:
+// {
+// Gnarby: 1,
+// Hummels: 1,
+// Lewandowski: 2
+// }
+
+// ?? Absolutně nechňápu
+// So the solution is to loop over the array, and add the array elements as object properties, and then increase the count as we encounter a new occurence of a certain element
+const scorers = {};
+for (const player of game.scored) {
+  // undefined = 1, pokud už je defined, tak +1
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+// console.log(scorers);
