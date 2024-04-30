@@ -4,12 +4,12 @@ const temperatures = [17, 21, 23];
 const temperatures2 = [12, 5, -5, 0, 4];
 
 const printForecast = (arr) => {
-  let string = "";
-  for (let i = 0; i < arr.length; i++) {
-    string += ` ... ${arr[i]}°C in ${i + 1} days`;
-  }
-  string += ` ... `;
-  console.log(string);
+    let string = "";
+    for (let i = 0; i < arr.length; i++) {
+        string += ` ... ${arr[i]}°C in ${i + 1} days`;
+    }
+    string += ` ... `;
+    console.log(string);
 };
 
 printForecast(temperatures);
@@ -20,44 +20,44 @@ printForecast(temperatures2);
 ///////////////////////////////////////////////////
 
 const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
+    team1: "Bayern Munich",
+    team2: "Borrussia Dortmund",
+    players: [
+        [
+            "Neuer",
+            "Pavard",
+            "Martinez",
+            "Alaba",
+            "Davies",
+            "Kimmich",
+            "Goretzka",
+            "Coman",
+            "Muller",
+            "Gnarby",
+            "Lewandowski",
+        ],
+        [
+            "Burki",
+            "Schulz",
+            "Hummels",
+            "Akanji",
+            "Hakimi",
+            "Weigl",
+            "Witsel",
+            "Hazard",
+            "Brandt",
+            "Sancho",
+            "Gotze",
+        ],
     ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
+    score: "4:0",
+    scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+    date: "Nov 9th, 2037",
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
 };
 // 1 (create one player array for each team)
 const players1 = game.players[0];
@@ -86,12 +86,12 @@ console.log(team1, draw, team2);
 // 6 Write a function ('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
 
 const printGoals = function (...playerNames) {
-  totalGoals = 0;
-  for (let i = 0; i < playerNames.length; i++) {
-    console.log(playerNames[i]);
-    totalGoals++;
-  }
-  console.log(totalGoals);
+    totalGoals = 0;
+    for (let i = 0; i < playerNames.length; i++) {
+        console.log(playerNames[i]);
+        totalGoals++;
+    }
+    console.log(totalGoals);
 };
 
 printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
@@ -103,3 +103,16 @@ printGoals(...game.scored);
 // USING the Short CIrcuiting
 team1 < team2 && console.log("Team 1 is more likely to win");
 team1 > team2 && console.log("Team 2 is more likely to win");
+
+//////////////////////////////////////////
+// Data Structures CODING CHALLENGE #02 //
+//////////////////////////////////////////
+
+// 1) Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+let goal = 0;
+for (const player of game.scored) {
+    goal++;
+    console.log(`Goal ${goal}: ${player}`);
+}
+
+// 2) Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
