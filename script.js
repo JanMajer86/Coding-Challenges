@@ -197,19 +197,18 @@ for (const [key, value] of gameEvents.entries()) {
 //////////////////////////////////////////
 
 const testData =
-  "underscore_case\nfirst_name\nSome_Variable\ncalculate_AGE\ndelayed_departure";
+  "underscore_case\n first_name\nSome_Variable\n calculate_AGE\ndelayed_departure ";
 
 const convertToCamelCase = function (string) {
   const split = string.toLowerCase().split("\n");
-  let count = 1;
-  for (const s of split) {
-    const [firstPart, secondPart] = s.split("_");
+
+  for (const [i, s] of split.entries()) {
+    const [firstPart, secondPart] = s.trim().split("_");
     const output =
       (firstPart + secondPart[0].toUpperCase() + secondPart.slice(1)).padEnd(
         20,
         " "
-      ) + "✅".repeat(count);
-    count++;
+      ) + "✅".repeat(i + 1);
     console.log(output);
   }
 };
