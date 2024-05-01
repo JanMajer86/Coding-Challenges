@@ -191,3 +191,27 @@ for (const [key, value] of gameEvents.entries()) {
   const str = key < 45 ? "[FIRST HALF]" : "[SECOND HALF]";
   console.log(`${str} ${key}: ${value}`);
 }
+
+//////////////////////////////////////////
+// Data Structures CODING CHALLENGE #04 //
+//////////////////////////////////////////
+
+const testData =
+  "underscore_case\nfirst_name\nSome_Variable\ncalculate_AGE\ndelayed_departure";
+
+const convertToCamelCase = function (string) {
+  const split = string.toLowerCase().split("\n");
+  let count = 1;
+  for (const s of split) {
+    const [firstPart, secondPart] = s.split("_");
+    const output =
+      (firstPart + secondPart[0].toUpperCase() + secondPart.slice(1)).padEnd(
+        20,
+        " "
+      ) + "✅".repeat(count);
+    count++;
+    console.log(output);
+  }
+};
+
+convertToCamelCase(testData);
