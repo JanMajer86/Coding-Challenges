@@ -298,13 +298,13 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
 // Functions CODING CHALLEGE 02 //
 //////////////////////////////////
 
-(function () {
-  const header = document.querySelector("h1");
-  header.style.color = "red";
-  document.body.addEventListener("click", function () {
-    header.style.color = "blue";
-  });
-})();
+// (function () {
+//   const header = document.querySelector("h1");
+//   header.style.color = "red";
+//   document.body.addEventListener("click", function () {
+//     header.style.color = "blue";
+//   });
+// })();
 
 ///////////////////////////////////////
 // WORKING WITH ARRAYS CHALLENGE #01 //
@@ -332,3 +332,21 @@ checkDogs(dogsJulia2, dogsKate2);
 ///////////////////////////////////////
 // WORKING WITH ARRAYS CHALLENGE #02 //
 ///////////////////////////////////////
+
+const calcAverageHumanAge = function (ages) {
+  const conversion = ages.map((age) => {
+    if (age <= 2) return age * 2;
+    else return 16 + age * 4;
+  });
+  const adultsOnly = conversion.filter((age) => age >= 18);
+  const average =
+    adultsOnly.reduce((acc, age) => acc + age, 0) / adultsOnly.length;
+  console.log(conversion);
+  console.log(adultsOnly);
+  console.log(average);
+};
+
+const calcAgeData1 = [5, 2, 4, 1, 15, 8, 3];
+const calcAgeData2 = [16, 6, 10, 5, 6, 1, 4];
+calcAverageHumanAge(calcAgeData1);
+calcAverageHumanAge(calcAgeData2);
